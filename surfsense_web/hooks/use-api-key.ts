@@ -38,7 +38,22 @@ export function useApiKey(): UseApiKeyReturn {
 		if (!apiKey) return;
 
 		try {
-			await navigator.clipboard.writeText(apiKey);
+			if (navigator.clipboard && window.isSecureContext) {
+				// Use Clipboard API if available and in secure context
+				await navigator.clipboard.writeText(apiKey);
+			} else {
+				// Fallback for non-secure contexts or browsers without Clipboard API
+				const textArea = document.createElement("textarea");
+				textArea.value = apiKey;
+				textArea.style.position = "fixed";
+				textArea.style.left = "-999999px";
+				textArea.style.top = "-999999px";
+				document.body.appendChild(textArea);
+				textArea.focus();
+				textArea.select();
+				document.execCommand("copy");
+				textArea.remove();
+			}
 			setCopied(true);
 			toast.success("API key copied to clipboard");
 

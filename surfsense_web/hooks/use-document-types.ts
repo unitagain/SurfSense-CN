@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
 import { authenticatedFetch } from "@/lib/auth-utils";
+import { logger } from "@/lib/logger";
 
 export interface DocumentTypeCount {
 	type: string;

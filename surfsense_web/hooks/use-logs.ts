@@ -2,6 +2,7 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { toast } from "sonner";
 import { authenticatedFetch } from "@/lib/auth-utils";
+import { logger } from "@/lib/logger";
 
 export type LogLevel = "DEBUG" | "INFO" | "WARNING" | "ERROR" | "CRITICAL";
 export type LogStatus = "IN_PROGRESS" | "SUCCESS" | "FAILED";

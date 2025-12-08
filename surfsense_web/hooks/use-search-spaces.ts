@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
 import { authenticatedFetch } from "@/lib/auth-utils";
+import { logger } from "@/lib/logger";
 
 interface SearchSpace {
 	id: number;

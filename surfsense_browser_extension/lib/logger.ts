@@ -41,12 +41,10 @@ export const logger = {
   },
 
   /**
-   * Info level logging - only shows in development
+   * Info level logging - always shows (useful for tracking important operations)
    */
   info: (message: string, ...args: unknown[]): void => {
-    if (config.isDevelopment) {
-      console.info(formatMessage('info', message), ...args);
-    }
+    console.info(formatMessage('info', message), ...args);
   },
 
   /**

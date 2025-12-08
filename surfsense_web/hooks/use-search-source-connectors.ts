@@ -56,7 +56,7 @@ export const useSearchSourceConnectors = (lazy: boolean = false, searchSpaceId?:
 		},
 		{
 			id: 4,
-			name: "Youtube Video",
+			name: "YouTube Video",
 			type: "YOUTUBE_VIDEO",
 			sources: [],
 		},

@@ -72,7 +72,7 @@ async def refresh_airtable_token(
 
         if token_response.status_code != 200:
             raise HTTPException(
-                status_code=400, detail="Token refresh failed: {token_response.text}"
+                status_code=400, detail=f"Token refresh failed: {token_response.text}"
             )
 
         token_json = token_response.json()
